@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background: #D3D3D3;
+}
+
+.memory-game {
+  width: 450px;
+  height: 450px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+/*
+  -webkit-transform: rotateY(180deg);   // Old Chrome, Safari
+  -moz-transform: rotateY(180deg);      // Old Firefox
+  -ms-transform: rotateY(180deg);       // Internet Explorer
+  -o-transform: rotateY(180deg);        // Old Opera
+  transform: rotateY(180deg);           // Newer Browsers 
+*/
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #F5F5F5;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);   
+  -moz-transform: rotateY(180deg);      
+  -ms-transform: rotateY(180deg);       
+  -o-transform: rotateY(180deg);       
+  transform: rotateY(180deg);     
+}
+
+
+.footer1 button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #424949;
+  width: 100%;
+  border: 2px solid white;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.footer1 button:hover,.form button:active,.form button:focus {
+  background: #AEB6BF;
+}
